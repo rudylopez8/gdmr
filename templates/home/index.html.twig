@@ -4,7 +4,14 @@
 
 {% block body %}
 
-<div class="example-wrapper">
-    <h1> GESTION MUNICIPALITE </h1>
-</div>
+    {# Entete de la Page #}  
+        <div class="example-wrapper">
+            <h1> APPLICATION GESTION MUNICIPALITE </h1>
+        </div>
+
+    {# Afichahe des Variables #}  
+     <h3> Nom du cpontrolle : {{ controller_name }}</h3>
+       <h3> Matricule:  {{ num_matricule}}</h3>
+       <h3> Note :  {{ note_recu}}</h3>
+
 {% endblock %}
