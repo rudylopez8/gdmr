@@ -1,0 +1,42 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello ExerciceController!{% endblock %}
+
+{% block body %}
+
+    <div>
+        <h1> PAGE EXEMPLE </h1>
+        <b>{{ 'Developpeur Web Mobile 2' }}</b>
+        <br>
+
+
+       {# //assignation #}
+       	{% set apropos = '<b> Le Développeur Web et Web Mobile développe et met au point un projet d’application informatique, de la phase d’étude à son intégration, selon des besoins fonctionnels et un cahier des charges. Il assure la conception des composants (traitements et données) et des interfaces, le développement et la mise au point (tests). Lorsque les applications informatiques sont en exploitation, il en assure la maintenance corrective et évolutive </b>' %} 
+        {{ apropos  }} 
+
+
+        <div> 
+            Titre du Livre:  {{ article.titre }} <br>
+            Auteur du Livre:{{ article.auteur }} 
+        </div>
+
+        
+        <h1>LISTE DES STAGIAIRES </h1>
+        
+        {% for stagiaire in stagiaires %}
+
+
+            <tr>
+                <td>{{ stagiaire.pseudo }}</td>
+                <td>{{ stagiaire.nom }}</td>
+                <td>{{ stagiaire.prenom }}</td><br>
+  
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="5">no records found</td>
+            </tr>
+        {% endfor %}
+    
+    </div>
+{% endblock %}

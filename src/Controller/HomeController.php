@@ -13,12 +13,14 @@ class HomeController extends AbstractController
      */
     public function index(): Response
     {
-        return $this->render('home/index.html.twig', 
+        return $this->render(
+            'home/index.html.twig',
             [
                 'controller_name' => 'HomeController',
                 'num_matricule'=>'2022-23',
                 'note_recu'=>'12/20',
-            ]);
+            ]
+        );
     }
 
     /**
@@ -38,29 +40,31 @@ class HomeController extends AbstractController
     {
         
        //Affiche du contact avec balise HTML
-        return new Response("
+        return new Response(
+            "
 
             <html>
                 <body>
                     <h1> PAGE CONTACT</h1>
                 </body>
             </html>"
-    );
+        );
     }
 
     /**
-     * @Route("/actualites/{name}", name="app_actuality")
+     * @Route("/actualites", name="app_actuality")
      */
-    public function actualites($name): Response
+    public function actualites(): Response
     {
-    $response = $this->forward('App\Controller\HomeController::actualites', [
-        'name'  => $name,
-        'color' => 'green',
+        $response1 = $this->forward('Controller: App\Controller\HomeController::index', [
+                'num_matricule'=>'2022-23',
+                'note_recu'=>'10/20',
     ]);
 
-    // ... further modify the response or return it directly
 
-    return $response;
+
+        // return $response;
+        return new Response($response1);
     }
 
     /**
@@ -72,9 +76,5 @@ class HomeController extends AbstractController
         return $this->redirectToRoute('app_apropos');
 
         // return $this->generateUrl('https://fr.wikipedia.org/wiki/Listes_des_communes_de_Francehome');
-
     }
-
-
-    
 }
