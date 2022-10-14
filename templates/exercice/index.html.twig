@@ -4,6 +4,7 @@
 
 {% block body %}
 
+
     <div>
         <h1> PAGE EXEMPLE </h1>
         <b>{{ 'Developpeur Web Mobile 2' }}</b>
@@ -22,7 +23,20 @@
 
         
         <h1>LISTE DES STAGIAIRES </h1>
-        
+       {{ dump(stagiaires)}}
+       <br>
+{% set tableau=[1, 2, 3] %} 
+
+{{tableau[0]}}
+<br>
+<br>
+
+{{8 * 555}} <br>
+
+<br>
+
+{{tableau[0]}}
+
         {% for stagiaire in stagiaires %}
 
 
