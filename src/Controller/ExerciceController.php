@@ -13,7 +13,7 @@ class ExerciceController extends AbstractController
      */
     public function index(): Response
     {
-        return $this->render('exercice/index.html.twig', [
+        return $this->render('users/index.html.twig', [
             'controller_name' => 'ExerciceController',
             'article'=>[
                     'titre'=>'Developpeur 2.0',
