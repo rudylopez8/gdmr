@@ -28,8 +28,12 @@ class HomeController extends AbstractController
      */
     public function apropos(): Response
     {
-        //l'envoi d'un Message à l'écran sans passer par une page
-        return new Response("PAGE/ UNDERCONSTRUCTION");
+        return $this->render(
+            'home/apropos.html.twig',
+            [
+               
+            ]
+        );
     }
     
     
