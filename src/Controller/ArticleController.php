@@ -20,6 +20,18 @@ use Symfony\Component\Routing\Annotation\Route;
 
 
     /**
+     * @Route("/article/01", name="app_article_affichage")
+     * 
+     */
+    public function affichage()
+    {    
+        return $this->render('article/affichage.html.twig', [
+
+        ]);
+
+    }
+
+    /**
      * @Route("/catalogue", name="app_catalogue")
      */
     public function catalogue(): Response
