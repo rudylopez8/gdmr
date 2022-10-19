@@ -6,7 +6,24 @@
         {% include("menus/navigation.html.twig") %}
         {% include("headers/header.html.twig") %}
     <div>
-        <h1> ARTICLES </h1>
+        
+        <div class="container">
+        
+            <h1> ARTICLES </h1>
+
+            {% for article in articles %}
+
+                Titre:  {{ article.titre }} <br>
+                    Auteur :{{ article.auteur }} <br>
+                    
+                    Resumé: {{ article.resume }} <br><br><br>
+                    
+                    {{ article.contenu }} <br><br><br>
+
+            {% endfor %}
+
+
+    </div> 
     </div>
 {% endblock %}
 
