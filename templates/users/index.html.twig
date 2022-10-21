@@ -5,28 +5,44 @@
 {% block body %}        
     {% include("menus/navigation.html.twig") %}
     {% include("headers/header.html.twig") %}
+        {% include("section/sectionUser.html.twig") %}
 
     {# Entete de la Page #}  
         <div class="example-wrapper">
          <h1> GESTION LES UTILISATEURS </h1>
     </div>
 
-   <div class ="container-sm, form-control">
-   
-    {% for stagiaire in stagiaires %}
+			<div class="row">	
+    <h1>Liste des Users</h1>
 
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Nom</th>
+                <th>Prenom</th>
+                <th>pseudo</th> 
+            </tr>
+        </thead>
 
-            <tr>
-                <td>{{ stagiaire.pseudo }}</td>
-                <td>{{ stagiaire.nom }}</td>
-                <td>{{ stagiaire.prenom }}</td><br>
-  
-            </tr>
-        {% else %}
-            <tr>
-                <td colspan="5">no records found</td>
-            </tr>
-        {% endfor %}
-    </div>
+        <tbody>
+            {% for user in users %}
+                <tr>
+                    <td>{{ user.id }}</td>
+                    <td>{{ user.nom }}</td>
+                    <td>{{ user.prenom }}</td>
+                    <td>{{ user.pseudo}}</td>
+                </tr>
+            {% else %}
+                <tr>
+                    <td colspan="5">Aucun user pour le moment !</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+</div></div></div>
+
+<br><br>
 
 {% endblock %}

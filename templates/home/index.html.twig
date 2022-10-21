@@ -5,7 +5,53 @@
      {% block body %}
         {% include("menus/navigation.html.twig") %}
         {% include("headers/header.html.twig") %}
-        {% include("section/section.html.twig") %}
+     
 
+            <h1> ARTICLES </h1>
+
+            {% for article in articles %}
+
+                Titre:  {{ article.titre }} <br>
+                    Auteur :{{ article.auteur }} <br>
+                    
+                    Resumé: {{ article.resume }} <br><br><br>
+                    
+                    {{ article.contenu }} <br><br><br>
+			<div class="row">	
+    <h1>Liste des Articles</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+               {#  <th>Image</th> #}
+                <th>Titre</th>
+                <th>Image</th>
+                <th>Auteurs</th> 
+                <th>Resumé</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            {% for article in articles %}
+                <tr>
+                    <td>{{ article.id }}</td>
+                    <td>{{ article.titre }}</td>
+                    <td>{{ article.image }}</td>
+                    <td>{{ article.auteur}}</td>
+                    <td>{{ article.resume}}</td>
+                </tr>
+            {% else %}
+                <tr>
+                    <td colspan="5">Aucun article pour lemoment !</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+</div></div></div>
+
+
+            {% endfor %}
 
 {% endblock %}
