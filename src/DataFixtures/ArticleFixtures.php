@@ -40,9 +40,9 @@ $tabAuteur=new ArrayCollection();
 
 
          // je mets en place 5 categories
-         for ($i=0; $i<2; $i++){
+         for ($i=0; $i<6; $i++){
             $categorie = New Categorie();
-            $categorie -> setTitre($faker->sentence($nb = 5, $asText = false))
+            $categorie -> setTitre($faker->word())
                        ->setResume($faker->text());        
             $manager->persist($categorie);
 

@@ -12,18 +12,14 @@
 
  <br>
   <br>
-  <h3> C’est quoi lorem ipsum ? </h3>
- 
-
-L’expression « Lorem ipsum dolor sit amet consectetuer » apparaît régulièrement sur les sites web ou sur les templates de page internet. Si vous ne parlez pas latin, vous pensez certainement qu’il y a une signification derrière cette phrase. Et pourtant, il n’en est rien ! Il s’agit de lorem ipsum, autrement dit, un faux texte.
-
-Le lorem ipsum comprend plusieurs phrases et mots de longueurs variables. 
  <br>  <br>
 
             <h2> {{ articles.contenu }}</h2>
             <h2> {{ articles.date | date('d/m/Y') }}</h2>
             {{articles.comentaire}}<br>        
                                                         Categorie: {{ articles.Categorie.Titre }} <br>
+                    Auteur: {{ articles.Auteur.Nom }} <br>
+                    Auteur: {{ articles.Auteur.Prenom }} <br>
 
 
 </div>
