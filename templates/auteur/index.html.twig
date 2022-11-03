@@ -1,0 +1,46 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello AuteurController!{% endblock %}
+
+{% block body %}        
+    {% include("menus/navigation.html.twig") %}
+    {% include("headers/header.html.twig") %}
+        {% include("section/sectionAuteur.html.twig") %}
+
+    {# Entete de la Page #}  
+        <div class="example-wrapper">
+         <h1> GESTION LES auteurs </h1>
+    </div>
+
+			<div class="row">	
+    <h1>Liste des auteurs</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Nom</th>
+                <th>Prenom</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            {% for auteur in auteurs %}
+                <tr>
+                    <td>{{ auteur.id }}</td>
+                    <td>{{ auteur.noms }}</td>
+                    <td>{{ auteur.prenoms }}</td>
+                </tr>
+            {% else %}
+                <tr>
+                    <td colspan="5">Aucun user pour le moment !</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+</div></div></div>
+
+<br><br>
+
+{% endblock %}

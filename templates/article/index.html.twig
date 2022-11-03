@@ -4,6 +4,7 @@
 {% block body %}
 
         {% include("menus/navigation.html.twig") %}
+        {% include("section/section.html.twig") %}
 
         {% include("headers/header.html.twig") %}
     <div>
@@ -20,6 +21,8 @@
                     Resumé: {{ article.resume }} <br><br><br>
                     
                     {{ article.contenu }} <br><br><br>
+                    Categorie: {{ article.Categorie.Titre }} <br>
+                                <a href="{{path('app_article_affichage', {'id': article.id})}}" class="btn btn-primary"> Lire </a> 
 
             {% endfor %}
 

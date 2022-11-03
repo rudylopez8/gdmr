@@ -23,11 +23,6 @@ class Article
     private $titre;
 
     /**
-     * @ORM\Column(type="string", length=255)
-     */
-    private $auteur;
-
-    /**
      * @ORM\Column(type="string", length=255, nullable=true)
      */
     private $image;
@@ -41,6 +36,26 @@ class Article
      * @ORM\Column(type="text")
      */
     private $contenu;
+
+    /**
+     * @ORM\Column(type="datetime", nullable=true)
+     */
+    private $date;
+
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $comentaire;
+
+    /**
+     * @ORM\ManyToOne(targetEntity=Categorie::class, inversedBy="articles")
+     */
+    private $categorie;
+
+    /**
+     * @ORM\ManyToOne(targetEntity=User::class, inversedBy="yes")
+     */
+    private $auteur;
 
     public function getId(): ?int
     {
@@ -59,17 +74,6 @@ class Article
         return $this;
     }
 
-    public function getAuteur(): ?string
-    {
-        return $this->auteur;
-    }
-
-    public function setAuteur(string $auteur): self
-    {
-        $this->auteur = $auteur;
-
-        return $this;
-    }
 
     public function getImage(): ?string
     {
@@ -103,6 +107,54 @@ class Article
     public function setContenu(string $contenu): self
     {
         $this->contenu = $contenu;
+
+        return $this;
+    }
+
+    public function getDate(): ?\DateTimeInterface
+    {
+        return $this->date;
+    }
+
+    public function setDate(?\DateTimeInterface $date): self
+    {
+        $this->date = $date;
+
+        return $this;
+    }
+
+    public function getComentaire(): ?string
+    {
+        return $this->comentaire;
+    }
+
+    public function setComentaire(?string $comentaire): self
+    {
+        $this->comentaire = $comentaire;
+
+        return $this;
+    }
+
+    public function getCategorie(): ?Categorie
+    {
+        return $this->categorie;
+    }
+
+    public function setCategorie(?Categorie $categorie): self
+    {
+        $this->categorie = $categorie;
+
+        return $this;
+    }
+
+    public function getAuteur(): ?User
+    {
+        return $this->auteur;
+    }
+
+    public function setAuteur(?User $auteur): self
+    {
+        $this->auteur = $auteur;
 
         return $this;
     }

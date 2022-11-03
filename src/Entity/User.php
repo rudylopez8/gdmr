@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use App\Repository\UserRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -66,6 +68,16 @@ class User
      * @ORM\Column(type="string", length=255, nullable=true)
      */
     private $mail;
+
+    /**
+     * @ORM\OneToMany(targetEntity=Article::class, mappedBy="auteur")
+     */
+    private $yes;
+
+    public function __construct()
+    {
+        $this->yes = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -188,6 +200,36 @@ class User
     public function setMail(?string $mail): self
     {
         $this->mail = $mail;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, Article>
+     */
+    public function getYes(): Collection
+    {
+        return $this->yes;
+    }
+
+    public function addYe(Article $ye): self
+    {
+        if (!$this->yes->contains($ye)) {
+            $this->yes[] = $ye;
+            $ye->setAuteur($this);
+        }
+
+        return $this;
+    }
+
+    public function removeYe(Article $ye): self
+    {
+        if ($this->yes->removeElement($ye)) {
+            // set the owning side to null (unless already changed)
+            if ($ye->getAuteur() === $this) {
+                $ye->setAuteur(null);
+            }
+        }
 
         return $this;
     }
