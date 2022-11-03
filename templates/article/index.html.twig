@@ -16,12 +16,13 @@
             {% for article in articles %}
 
                 Titre:  {{ article.titre }} <br>
-                    Auteur :{{ article.auteur }} <br>
                     
                     Resumé: {{ article.resume }} <br><br><br>
                     
                     {{ article.contenu }} <br><br><br>
                     Categorie: {{ article.Categorie.Titre }} <br>
+                    Auteur: {{ article.Auteur.Nom }} <br>
+
                                 <a href="{{path('app_article_affichage', {'id': article.id})}}" class="btn btn-primary"> Lire </a> 
 
             {% endfor %}
